@@ -3,11 +3,12 @@ package TP;
 import java.util.*;
 
 public class Obra {
-	protected String nome;
+	
+	protected String nome;	
 	protected boolean lido;
 	protected Date dataPublicacao;
 	
-	public boolean toBoolean() {
+	public boolean toBoolean() {	// ToBoolean para ler variavewl tipo boolean.
 		return lido;
 	}
 	
