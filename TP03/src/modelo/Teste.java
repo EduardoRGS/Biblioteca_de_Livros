@@ -1,4 +1,4 @@
-package TP;
+package modelo;
 
 import java.util.*; // Para poder usar o tipo Date e ostras funções.
 
@@ -10,6 +10,7 @@ public class Teste {
 	static Livro l;			// Para poder usar os atributos da classe Livro
 	static Livro l2;		// Para poder cadastra mais de um Livro.
 	
+	/*
 	public static void main(String[] args) {
 		
 		 Biblioteca aux = new Biblioteca("Eduardo R.","61 999999999"); // Chamando a classe para poder 
@@ -75,4 +76,5 @@ public class Teste {
 		aux.quantidadeTotal(); // Mostra a quantidade Total depois do Emprestimo de um Livro.
 		
 	}
+	*/
 }

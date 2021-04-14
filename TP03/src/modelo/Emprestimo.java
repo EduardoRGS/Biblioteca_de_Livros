@@ -1,4 +1,4 @@
-package TP;
+package modelo;
 
 import java.util.*; // Para poder usar o tipo Date e os outras funções.
 
@@ -13,6 +13,9 @@ public class Emprestimo {
 		nomeUsuario = nu;
 		telefone = t;
 		data = d;
+	}
+	public Emprestimo(String[] dadosLivros) {
+		this.getNomeLivro();
 	}
 	
 	

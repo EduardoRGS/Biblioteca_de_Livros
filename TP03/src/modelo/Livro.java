@@ -1,16 +1,22 @@
-package TP;
+package modelo;
 
 
 
 public class Livro extends Obra {
 	private String generoLiterario;
 	
-	public Livro (String n1,String g1,boolean l1) { // Para cadastrar o nome,gênero,etc. Na Classe teste.
+	public Livro() {
+		super();
+	}
+	public Livro(String n1, String g1) {
 		nome = n1;
 		generoLiterario = g1;
-		lido = l1;
+		
 	}
-	
+	public Livro(String[] dadosLivros) {
+		this.getNome();
+	}
+
 	public String toString() {			// ToString para cadastra o nome do Livro.
 		return "Nome do Livro = " +nome;
 	}
