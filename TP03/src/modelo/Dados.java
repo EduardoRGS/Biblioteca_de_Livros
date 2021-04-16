@@ -8,20 +8,28 @@ public class Dados {
 	private Emprestimo[] emprestimos = new Emprestimo[50];
 	private int qtdEmprestados = 0;
 	private Obra[] obra = new Obra[50];
+	private Usuario[] usuarios = new Usuario[50];
+	private int qtdUsuarios = 0;
 	
 	public void GerarDados() {
 		
 		for(int i = 0; i < 5; i++) {
 			livros[i] = new Livro("Livro"+i, "Genero"+i);
+			usuarios[i] = new Usuario("Usuario"+i);
 		}
 		qtdLivros = 5;
+		qtdUsuarios = 5;
 	}
 	public void inserirEditarLivro(Livro l, int pos) {
 		this.livros[pos] = l;
 		if(pos == qtdLivros)
 			qtdLivros++;
 	}
-
+	public void inserirEditarUsuario(Usuario u, int pos) {
+		this.usuarios[pos] = u;
+		if(pos == qtdUsuarios)
+			qtdUsuarios++;
+	}
 	public Livro[] getLivros() {
 		return livros;
 	}
@@ -59,5 +67,16 @@ public class Dados {
 	public void setQtdEmprestados(int qtdEmprestados) {
 		this.qtdEmprestados = qtdEmprestados;
 	}
-	
+	public Usuario[] getUsuarios() {
+		return usuarios;
+	}
+	public void setUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
+	}
+	public int getQtdUsuarios() {
+		return qtdUsuarios;
+	}
+	public void setQtdUsuarios(int qtdUsuarios) {
+		this.qtdUsuarios = qtdUsuarios;
+	}
 }

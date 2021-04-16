@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import modelo.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -28,7 +30,6 @@ public class TelaDetalheLivro implements ActionListener {
 	private int posicao;
 	private int opcao;
 	private String s;
-	
 	public void inserirEditar(int op, ControleDados d, TelaLivro l, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -127,20 +128,23 @@ public class TelaDetalheLivro implements ActionListener {
 				res = dados.removeLivro(posicao);
 				if(res) { 
 					mensagemSucessoExclusao();
+					
 				} else {
 					mensagemErroExclusaoLivro();
 				}
 			}
 		}
+		
 	}
 	
+
 	public void mensagemSucessoExclusao() {
-		JOptionPane.showMessageDialog(null,"Os dados foram Excluidos com sucesso", null,
+		JOptionPane.showMessageDialog(null,"O Livro foi Excluido com sucesso", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 	public void mensagemSucessoCadastro() {
-		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
+		JOptionPane.showMessageDialog(null, "O Livro foi salvo com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}

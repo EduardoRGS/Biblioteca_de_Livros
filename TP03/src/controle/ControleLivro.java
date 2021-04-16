@@ -6,6 +6,7 @@ public class ControleLivro {
 	private Livro[] l;
 	private int qtdLivros;
 	
+	
 	public ControleLivro(ControleDados d) {
 		l = d.getLivros();
 		qtdLivros = d.getQtdLivros();

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.*;
+import modelo.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -12,9 +13,14 @@ public class TelaBiblioteca implements ActionListener{
 	private JButton pesquisa;
 	private JTextField valorPesquisa;
 	private static ControleDados dados;
+	private String s;
+	private int opcao;
+	
 	
 	public void pesquisa(ControleDados d, int op) {
 		dados = d;
+		opcao = op;
+		
 		switch (op) {
 		case 3:
 			
@@ -31,27 +37,50 @@ public class TelaBiblioteca implements ActionListener{
 			janela.setLayout(null);
 			
 			janela.add(titulo);
-			janela.add(valorPesquisa);
 			janela.add(pesquisa);
+			janela.add(valorPesquisa);
+			s = valorPesquisa.getText();
+			
 			
 			janela.setSize(400, 250);
 			janela.setVisible(true);
 			
 			pesquisa.addActionListener(this);
+			
 			break;
 			
 		default:
 			JOptionPane.showMessageDialog(null,"Opção não encontrada!", null
-					,JOptionPane.ERROR_MESSAGE);
+			,JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == pesquisa) {
-			
+			if(opcao == 3) {
+				if(dados.pesquisa(s) == 0) {
+	
+					mensagemSucessoPesquisa();
+				} else {
+					
+					 mensagemErroPesquisa();
+				}
+			}
 		}
 	}
+	public void mensagemSucessoPesquisa() {
+		
+		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
+				JOptionPane.INFORMATION_MESSAGE);
+		janela.dispose();
+	}
 	
+	public void mensagemErroPesquisa() {
+		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
+				, null, 
+				JOptionPane.ERROR_MESSAGE);
+	}
 
 }
