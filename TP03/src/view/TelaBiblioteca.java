@@ -39,7 +39,6 @@ public class TelaBiblioteca implements ActionListener{
 			janela.add(titulo);
 			janela.add(pesquisa);
 			janela.add(valorPesquisa);
-			s = valorPesquisa.getText();
 			
 			
 			janela.setSize(400, 250);
@@ -59,15 +58,16 @@ public class TelaBiblioteca implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == pesquisa) {
-			if(opcao == 3) {
+			
+				s = valorPesquisa.getText();
 				if(dados.pesquisa(s) == 0) {
-	
+					
 					mensagemSucessoPesquisa();
 				} else {
 					
 					 mensagemErroPesquisa();
 				}
-			}
+			
 		}
 	}
 	public void mensagemSucessoPesquisa() {
