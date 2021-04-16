@@ -71,17 +71,19 @@ public class ControleDados {
 	public int pesquisa(String nomeLivro) {
 		int posicao = -1;
 		
-		
+			
 		for(int i = 0; i < d.getQtdLivros(); i++) {
-			if(d.getLivro()[i].getNome().compareTo(nomeLivro) == 0) 
+			
+			if(d.getLivro()[i].getNome().toLowerCase().compareTo(nomeLivro.toLowerCase()) == 0) {
+					posicao = i;
+					
+					System.out.println(d.getLivro()[i].getNome());
+					System.out.println(posicao);
 					return posicao;
-					System.out.println(d.getLivros()[i].getNome());
-					System.out.println("Livro Pesquisado =  "+nomeLivro);
-			
-			
+			} else {
+				posicao = -1;
+			}
 		}
-		System.out.println("qtd = "+d.getQtdLivros());
-		System.out.println("Livro Pesquisado =  "+nomeLivro);
 		System.out.println(posicao);
 		return posicao;	 
 		

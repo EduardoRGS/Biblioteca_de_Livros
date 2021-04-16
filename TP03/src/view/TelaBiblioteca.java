@@ -58,16 +58,16 @@ public class TelaBiblioteca implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == pesquisa) {
-			
+			if(opcao == 3) {
 				s = valorPesquisa.getText();
-				if(dados.pesquisa(s) == 0) {
+				if(dados.pesquisa(s) >= 0) {
 					System.out.println("Funcionou "+s);
 					mensagemSucessoPesquisa();
 				} else {
-					
+					System.out.println("Erro "+s);
 					 mensagemErroPesquisa();
 				}
-			
+			}
 		}
 	}
 	public void mensagemSucessoPesquisa() {
