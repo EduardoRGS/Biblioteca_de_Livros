@@ -61,7 +61,7 @@ public class TelaBiblioteca implements ActionListener{
 			
 				s = valorPesquisa.getText();
 				if(dados.pesquisa(s) == 0) {
-					
+					System.out.println("Funcionou "+s);
 					mensagemSucessoPesquisa();
 				} else {
 					
