@@ -22,7 +22,7 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 			listaUsuarios = new ControleUsuario(dados).getNomeUsuario();
 			listaUsuariosCadastrados = new JList<String>(listaUsuarios);
 			janela = new JFrame("Usuarios");
-			titulo = new JLabel("Usaurios Cadastrados");
+			titulo = new JLabel("Usuarios Cadastrados");
 			cadastroUsuarios = new JButton("Cadastrar");
 			refreshUsuarios = new JButton("Refresh");
 			

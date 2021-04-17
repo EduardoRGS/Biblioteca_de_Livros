@@ -126,6 +126,7 @@ public class TelaDetalheLivro implements ActionListener {
 			if(opcao == 3) {
 				
 				res = dados.removeLivro(posicao);
+				
 				if(res) { 
 					mensagemSucessoExclusao();
 					
@@ -161,5 +162,5 @@ public class TelaDetalheLivro implements ActionListener {
 	}
 	
 	
-
+	
 }

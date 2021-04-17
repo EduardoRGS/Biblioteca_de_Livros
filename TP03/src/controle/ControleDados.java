@@ -77,14 +77,13 @@ public class ControleDados {
 			if(d.getLivro()[i].getNome().toLowerCase().compareTo(nomeLivro.toLowerCase()) == 0) {
 					posicao = i;
 					
-					System.out.println(d.getLivro()[i].getNome());
-					System.out.println(posicao);
+					
 					return posicao;
 			} else {
 				posicao = -1;
 			}
 		}
-		System.out.println(posicao);
+		
 		return posicao;	 
 		
 	}

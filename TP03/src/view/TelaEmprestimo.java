@@ -12,6 +12,7 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 	private JButton fazerEmprestimo;
 	private JButton devolverLivro;
 	private JButton emEmprestimo;
+	private JButton refreshEmprestimo;
 	private static ControleDados dados;
 	private JList<String> livrosBiblioteca;
 	private String[] listaBiblioteca;
@@ -28,6 +29,7 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 			fazerEmprestimo = new JButton("Fazer Emprestimo");
 			devolverLivro = new JButton("Devolver Emrestimo");
 			emEmprestimo = new JButton("Em Emprestimo");
+			refreshEmprestimo = new JButton("Refresh");
 			
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -38,7 +40,8 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 			
 			fazerEmprestimo.setBounds(20, 177, 150, 30);
 			devolverLivro.setBounds(220, 177, 150, 30);
-			emEmprestimo.setBounds(115, 220, 150, 30);
+			emEmprestimo.setBounds(20, 220, 150, 30);
+			refreshEmprestimo.setBounds(220, 220, 150,30);
 			
 			janela.setLayout(null);
 			
@@ -47,12 +50,14 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 			janela.add(fazerEmprestimo);
 			janela.add(devolverLivro);
 			janela.add(emEmprestimo);
+			janela.add(refreshEmprestimo);
 			
 			janela.setSize(400, 300);
 			janela.setVisible(true);
 			
 			fazerEmprestimo.addActionListener(this);
 			devolverLivro.addActionListener(this);
+			emEmprestimo.addActionListener(this);
 			livrosBiblioteca.addListSelectionListener(this);
 			
 			break;
@@ -68,7 +73,17 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 		
 		if(src == fazerEmprestimo) {
-		
+			new TelaDetalheEmprestimo().fazerEmprestimo(1, dados, this, 0);
+		}
+		if(src == devolverLivro) {
+			
+		}
+		if(src == emEmprestimo) {
+			
+		}
+		if(src == refreshEmprestimo) {
+			livrosBiblioteca.setListData(new ControleLivro(dados).getNomeLivro());
+			livrosBiblioteca.updateUI();
 		}
 	}
 	
@@ -76,7 +91,10 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 		Object src = e.getSource();
 		
 		if(e.getValueIsAdjusting() && src == livrosBiblioteca) {
-			
+			new TelaDetalheEmprestimo().fazerEmprestimo(2, dados, null, 
+					livrosBiblioteca.getSelectedIndex());
 		}
 	}
+	
+	
 }
