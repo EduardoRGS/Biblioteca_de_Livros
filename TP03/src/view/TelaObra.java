@@ -13,8 +13,10 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
 	private JButton refreshOA;
+	private JButton estatistica;
 	private static ControleDados dados;
 	private JList<String> listaOrdemLivros;
+	
 	private String[] listaOrdem = new String[50];
 	
 	public void listaOrdemAlfabetica(ControleDados d, int op) {
@@ -24,9 +26,11 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 		case 4:
 			listaOrdem = new ControleLivro(dados).getNomeLivro();
 			listaOrdemLivros = new JList<String>(listaOrdem);
+			
 			janela = new JFrame("Organização");
 			titulo = new JLabel("Livros");
 			refreshOA = new JButton("Ordem Alfabetica");
+			estatistica = new JButton("Estatística");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(20, 10, 150, 30);
@@ -35,18 +39,20 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 			listaOrdemLivros.setVisibleRowCount(10);
 			
 			refreshOA.setBounds(20, 177, 150, 30);
-			
+			estatistica.setBounds(200, 177, 150, 30);
 			
 			janela.setLayout(null);
 			
 			janela.add(titulo);
 			janela.add(listaOrdemLivros);
 			janela.add(refreshOA);
+			janela.add(estatistica);
 			
 			janela.setSize(400, 250);
 			janela.setVisible(true);
 			
 			refreshOA.addActionListener(this);
+			estatistica.addActionListener(this);
 			listaOrdemLivros.addListSelectionListener(this);
 			
 			break;
@@ -59,9 +65,16 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 			
 			listaOrdemLivros.setListData(new ControleLivro(dados).getNomeLivro());
 			listaOrdemLivros.updateUI();
+			JOptionPane.showMessageDialog(null,"Essa opção não foi configurada ", null,
+					JOptionPane.INFORMATION_MESSAGE);
 			
-		//	Collections.sort(listaOrdemLivros);
-		//	DefaultListModel model = (DefaultListModel)listaOrdemLivros.getModel();
+	
+		}
+		if(src == estatistica) {
+			JOptionPane.showMessageDialog(null, "Quantidade de Livros Lidos "+new TelaDetalheLivro().quantidadeLido+
+					"\n Qunatidade de Livros Pendentes "+new TelaDetalheLivro().quantidadePendentes+
+					"\n Quantidade Total de Livros "+dados.getQtdLivros(), null,
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 			
 			

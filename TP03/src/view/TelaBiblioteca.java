@@ -72,13 +72,14 @@ public class TelaBiblioteca implements ActionListener{
 	}
 	public void mensagemSucessoPesquisa() {
 		
-		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
+		JOptionPane.showMessageDialog(null, "Livro Pesquisado encontrado", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 	
 	public void mensagemErroPesquisa() {
-		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
+		JOptionPane.showMessageDialog(null,"LIVRO NÃO ENCONTRADO!\n"
+				+ "Pesquise novamente!!!"
 				, null, 
 				JOptionPane.ERROR_MESSAGE);
 	}

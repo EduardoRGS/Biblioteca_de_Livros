@@ -30,6 +30,8 @@ public class TelaDetalheLivro implements ActionListener {
 	private int posicao;
 	private int opcao;
 	private String s;
+	int quantidadeLido = 3;
+	int quantidadePendentes = 2;
 	public void inserirEditar(int op, ControleDados d, TelaLivro l, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -83,7 +85,8 @@ public class TelaDetalheLivro implements ActionListener {
 		
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
-		
+		botaoLido.addActionListener(this);
+		botaoNaoLido.addActionListener(this);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -108,6 +111,8 @@ public class TelaDetalheLivro implements ActionListener {
 					
 				}
 				if(res = true) {
+					
+					
 					mensagemSucessoCadastro();
 				}
 				else mensagemErroCadastro();
@@ -118,6 +123,7 @@ public class TelaDetalheLivro implements ActionListener {
 			} catch (NumberFormatException ex2) {
 				mensagemErroCadastro();
 			}
+			
 		}
 		
 		if(src == botaoExcluir) {
@@ -128,14 +134,28 @@ public class TelaDetalheLivro implements ActionListener {
 				res = dados.removeLivro(posicao);
 				
 				if(res) { 
+					
 					mensagemSucessoExclusao();
+					
 					
 				} else {
 					mensagemErroExclusaoLivro();
 				}
 			}
 		}
-		
+		if(src == botaoLido) {
+			quantidadeLido++;
+			
+			JOptionPane.showMessageDialog(null, "Marcado com Livro Lido ", null,
+					JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		if(src == botaoNaoLido) {
+			
+			quantidadePendentes++;
+			JOptionPane.showMessageDialog(null, "Marcado com Livro Pendente", null,
+					JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 	
 
@@ -160,7 +180,6 @@ public class TelaDetalheLivro implements ActionListener {
 		JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR DADOS!\n ", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
-	
 	
 	
 }

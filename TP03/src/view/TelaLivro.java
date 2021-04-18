@@ -2,6 +2,8 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
@@ -68,6 +70,7 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 		}
 		
 		if(src == refreshLivro) {
+			
 			listaLivrosCadastrados.setListData(new ControleLivro(dados).getNomeLivro());
 			listaLivrosCadastrados.updateUI();
 		}

@@ -28,7 +28,6 @@ public class ControleDados {
 		return this.d.getQtdLivros();
 	}
 	
-	
 	public Usuario[] getUsuarios() {
 		return this.d.getUsuarios();
 	}
@@ -89,7 +88,7 @@ public class ControleDados {
 			}
 			d.getLivros()[d.getQtdLivros()] = null;
 			d.setQtdLivros(d.getQtdLivros() - 1);
-			
+			remove = livroRemovido;
 			return true;
 		}
 		

@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.*;
+import java.util.Arrays;
 
 public class Dados {
 	private Livro[] livros = new Livro[50];
@@ -12,14 +13,19 @@ public class Dados {
 	private int qtdUsuarios = 0;
 	
 	
+	
 	public void GerarDados() {
 		
 		for(int i = 0; i < 5; i++) {
+			
 			livros[i] = new Livro("Livro"+i, "Genero"+i);
 			usuarios[i] = new Usuario("Usuario"+i);
+			
 		}
+		
 		qtdLivros = 5;
 		qtdUsuarios = 5;
+		
 	}
 	public void inserirEditarLivro(Livro l, int pos) {
 		this.livros[pos] = l;

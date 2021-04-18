@@ -85,13 +85,12 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 			salvarEmprestimo.addActionListener(this);
 			cadastroEmprestimo.addActionListener(this);
 			break;
-		case 2:
-			break;
 		case 3:
 			quant++;
+			
 			for(int j = 0; j< quant; j++) {
-				aux[j] = d.remove;
-				emEmprestimo[j] = aux[j];
+				emEmprestimo[j] = d.remove;
+			
 			}
 			
 			livrosEmprestados = new JList<String>(emEmprestimo);
@@ -113,7 +112,6 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 		Object src = e.getSource();
 		String pesquisa2;
 		String pesquisa1;
-		String lista[] = new  String[50];
 		
 		if(src == salvarEmprestimo) {
 			boolean res = false;
@@ -134,9 +132,13 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 			pesquisa1 = novoEmprestimo[1];
 			pesquisa2 = novoEmprestimo[2];
 				if(dados.pesquisa(pesquisa2) >= 0 && dados.pesquisaUsuario(pesquisa1) >= 0) {
-				res = dados.removeLivro(posicao);
-				res = dados.removeUsuario(posicao);
+					res = dados.removeLivro(posicao);
+					res = dados.removeUsuario(posicao);
 				
+				} else {
+					JOptionPane.showMessageDialog(null,"Cadastre um usuario para poder fazer o"
+							+ "emprestimo do Livro", null,
+							JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 			if(res) {
@@ -157,8 +159,6 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 		if(e.getValueIsAdjusting() && src == livrosEmprestados) {
 			new TelaDetalheEmprestimo().fazerEmprestimo(3, dados, null, 
 				livrosEmprestados.getSelectedIndex());
-			
-			
 		}
 	}
 	
@@ -171,13 +171,5 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 	public void mensagemErroExclusaoEmprestimo() {
 		JOptionPane.showMessageDialog(null,"ERRO AO REALIZAR EMPRESTIMO!\n ", null, 
 				JOptionPane.ERROR_MESSAGE);
-	}
-	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null,"ERRO AO REALIZAR CADASTRO DO EMPRESTIMO!\n ", null, 
-				JOptionPane.ERROR_MESSAGE);
-	}
-	public void mensagemSucessoCadastro() {
-		JOptionPane.showMessageDialog(null,"O Cadastro do Emprestimo foi realizado com sucesso", null,
-				JOptionPane.INFORMATION_MESSAGE);
 	}
 }

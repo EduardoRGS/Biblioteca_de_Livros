@@ -96,6 +96,10 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 		if(e.getValueIsAdjusting() && src == livrosBiblioteca) {
 			new TelaDetalheEmprestimo().fazerEmprestimo(1, dados, this, 
 					livrosBiblioteca.getSelectedIndex());
+		} else {
+			JOptionPane.showMessageDialog(null,"Cadastre um usuario para poder fazer o "
+					+ "emprestimo do Livro", null,
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}

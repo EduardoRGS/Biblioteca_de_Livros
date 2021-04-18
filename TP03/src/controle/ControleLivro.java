@@ -1,6 +1,7 @@
 package controle;
 
 import modelo.*;
+import java.lang.String;
 
 public class ControleLivro {
 	private Livro[] l;
@@ -18,6 +19,7 @@ public class ControleLivro {
 		String[] s = new String[qtdLivros];
 		for(int i = 0; i < qtdLivros; i++) {
 			s[i] = l[i].getNome();
+			
 			
 		}
 		return s;
