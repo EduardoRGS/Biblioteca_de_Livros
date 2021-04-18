@@ -5,11 +5,13 @@ import modelo.*;
 public class ControleLivro {
 	private Livro[] l;
 	private int qtdLivros;
+	private Emprestimo[] e;
 	
 	
 	public ControleLivro(ControleDados d) {
 		l = d.getLivros();
 		qtdLivros = d.getQtdLivros();
+		e = d.getEmprestimos();
 	}
 	
 	public String[] getNomeLivro() {
@@ -21,11 +23,9 @@ public class ControleLivro {
 		return s;
 	}
 	
-	
 	public String getNome(int i) {
 		return l[i].getNome();
 	}
-	
 	public int getQtdLivros() {
 		return qtdLivros;
 	}

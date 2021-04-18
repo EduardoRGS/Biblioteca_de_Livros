@@ -2,6 +2,8 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Collections;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
@@ -54,8 +56,12 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == refreshOA) {
+			
 			listaOrdemLivros.setListData(new ControleLivro(dados).getNomeLivro());
 			listaOrdemLivros.updateUI();
+			
+		//	Collections.sort(listaOrdemLivros);
+		//	DefaultListModel model = (DefaultListModel)listaOrdemLivros.getModel();
 		}
 			
 			

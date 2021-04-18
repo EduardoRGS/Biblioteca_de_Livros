@@ -1,10 +1,13 @@
 package controle;
 
+import javax.swing.JList;
+
 import modelo.*;
 
 public class ControleDados {
 	private Dados d = new Dados();
-	
+	public String remove;
+	public int contador;
 	
 	public ControleDados() {
 		d.GerarDados();
@@ -13,6 +16,7 @@ public class ControleDados {
 		return d;
 	}
 
+	
 	public void setDados(Dados d) {
 		this.d = d;
 	}
@@ -23,12 +27,22 @@ public class ControleDados {
 	public int getQtdLivros() {
 		return this.d.getQtdLivros();
 	}
+	
+	
 	public Usuario[] getUsuarios() {
 		return this.d.getUsuarios();
 	}
 	public int getQtdUsuarios() {
 		return this.d.getQtdUsuarios();
 	}
+	
+	public Emprestimo[] getEmprestimos() {
+		return this.d.getEmprestimos();
+	}
+	public int getQtdEmprestimos() {
+		return this.d.getQtdEmprestados();
+	}
+	
 	
 	public boolean inserirEditarLivro(String[] dadosLivros) {
 		Livro l = new Livro(dadosLivros[1], dadosLivros[2]);
@@ -42,21 +56,31 @@ public class ControleDados {
 		int qtdLivros = d.getQtdLivros();
 		String livroRemovido = d.getLivros()[i].getNome();
 		String aux;
+		int qtdRemovidos= 0;
+		int q = 0;;
+		
 		for(int j = 0; j < 1; j++) {
 			aux = d.getLivro()[j].getNome();
-			if(livroRemovido.compareTo(aux) == 0)
+			if(livroRemovido.compareTo(aux) == 0) {
+				
 				return false;
+			}
 		}
 		
 		if(i == (d.getQtdLivros() - 1)) {
 			d.setQtdLivros(getQtdLivros() - 1);
 			d.getLivros()[d.getQtdLivros()] = null;
+			
+			remove = livroRemovido;
+			
 			return true;
+			
 			
 		} else {
 			int cont = 0;
 			while(d.getLivros()[cont].getNome().compareTo(livroRemovido) != 0) {
 				cont++;
+				
 			}
 			for(int j = cont; j < d.getQtdLivros(); j++) {
 				d.getLivros()[j] = null;
@@ -65,9 +89,12 @@ public class ControleDados {
 			}
 			d.getLivros()[d.getQtdLivros()] = null;
 			d.setQtdLivros(d.getQtdLivros() - 1);
+			
 			return true;
 		}
+		
 	}
+	
 	public int pesquisa(String nomeLivro) {
 		int posicao = -1;
 		
@@ -76,14 +103,11 @@ public class ControleDados {
 			
 			if(d.getLivro()[i].getNome().toLowerCase().compareTo(nomeLivro.toLowerCase()) == 0) {
 					posicao = i;
-					
-					
 					return posicao;
 			} else {
 				posicao = -1;
 			}
 		}
-		
 		return posicao;	 
 		
 	}
@@ -124,4 +148,20 @@ public class ControleDados {
 			return true;
 		}
 	}
+	public int pesquisaUsuario(String nomeUsuario) {
+		int posicao = -1;
+		
+		for(int i = 0; i < d.getQtdUsuarios(); i++) {
+			
+			if(d.getUsuarios()[i].getNomeUsuario().toLowerCase().compareTo(nomeUsuario.toLowerCase()) == 0) {
+					posicao = i;
+					return posicao;
+			} else {
+				posicao = -1;
+			}
+		}
+		return posicao;	 
+		
+	}
+	
 }

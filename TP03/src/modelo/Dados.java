@@ -11,6 +11,7 @@ public class Dados {
 	private Usuario[] usuarios = new Usuario[50];
 	private int qtdUsuarios = 0;
 	
+	
 	public void GerarDados() {
 		
 		for(int i = 0; i < 5; i++) {
@@ -30,6 +31,8 @@ public class Dados {
 		if(pos == qtdUsuarios)
 			qtdUsuarios++;
 	}
+	
+	
 	public Livro[] getLivros() {
 		return livros;
 	}
@@ -40,33 +43,37 @@ public class Dados {
 	public void setLivros(Livro[] livros) {
 		this.livros = livros;
 	}
+	public int getQtdLivros() {
+		return qtdLivros;
+	}
+	public void setQtdLivros(int qtdLivros) {
+		this.qtdLivros = qtdLivros;
+	}
+	
 
 	public Emprestimo[] getEmprestimos() {
 		return emprestimos;
 	}
+	public void setEmprestimos(Emprestimo[] emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+	public int getQtdEmprestados() {
+		return qtdEmprestados;
+	}
+	public void setQtdEmprestados(int qtdEmprestados) {
+		this.qtdEmprestados = qtdEmprestados;
+	}
+	public String setlivroEmprestado(String emprestimo) {
+		return emprestimo;
+	}
+	
+	
 	public Obra[] getObra() {
 		return obra;
 	}
 
-	public void setEmprestimos(Emprestimo[] emprestimos) {
-		this.emprestimos = emprestimos;
-	}
 
-	public int getQtdLivros() {
-		return qtdLivros;
-	}
-
-	public void setQtdLivros(int qtdLivros) {
-		this.qtdLivros = qtdLivros;
-	}
-
-	public int getQtdEmprestados() {
-		return qtdEmprestados;
-	}
-
-	public void setQtdEmprestados(int qtdEmprestados) {
-		this.qtdEmprestados = qtdEmprestados;
-	}
+	
 	public Usuario[] getUsuarios() {
 		return usuarios;
 	}

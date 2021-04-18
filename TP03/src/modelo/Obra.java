@@ -25,7 +25,9 @@ public class Obra {
 	public String getNome() {
 		return nome;
 	}
-	
+	public String getNomeEmprestimo() {
+		return nome;
+	}
 	
 	public void setNome(String nome) {
 		this.nome = nome;

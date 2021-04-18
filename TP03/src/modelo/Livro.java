@@ -5,6 +5,7 @@ package modelo;
 public class Livro extends Obra {
 	private String generoLiterario;
 	
+	
 	public Livro() {
 		super();
 	}
