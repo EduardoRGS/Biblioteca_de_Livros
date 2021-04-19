@@ -25,25 +25,30 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 		
 		switch (op) {
 		case 4:
+			// lista dos livros
 			listaOrdem = new ControleLivro(dados).getNomeLivro();
 			listaOrdemLivros = new JList<String>(listaOrdem);
 			
+			// nome dos jfrmae, jlabel, jbuttons.
 			janela = new JFrame("Organização");
 			titulo = new JLabel("Livros");
 			refreshOA = new JButton("Ordem Alfabetica");
 			estatistica = new JButton("Estatística");
 			
+			// tamamnho do titulo e jlist
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(20, 10, 150, 30);
 			listaOrdemLivros.setBounds(20, 50, 350, 120);
 			listaOrdemLivros.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaOrdemLivros.setVisibleRowCount(10);
 			
+			// tamanho dos botoes
 			refreshOA.setBounds(20, 177, 150, 30);
 			estatistica.setBounds(200, 177, 150, 30);
 			
 			janela.setLayout(null);
 			
+			// adiciona a janela do titulo, jlist botoes.
 			janela.add(titulo);
 			janela.add(listaOrdemLivros);
 			janela.add(refreshOA);
@@ -62,7 +67,7 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		if(src == refreshOA) {
+		if(src == refreshOA) { // atualiza a lista em ordem alfabeticva
 			
 			listaOrdemLivros.setListData(new ControleLivro(dados).getNomeLivro());
 			listaOrdemLivros.updateUI();
@@ -71,7 +76,7 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 			
 	
 		}
-		if(src == estatistica) {
+		if(src == estatistica) { // mostra aquantidade de livros lidos,pendentes e totais.
 			JOptionPane.showMessageDialog(null, "Quantidade de Livros Lidos "+new TelaDetalheLivro().quantidadeLido+
 					"\n Qunatidade de Livros Pendentes "+new TelaDetalheLivro().quantidadePendentes+
 					"\n Quantidade Total de Livros "+dados.getQtdLivros(), null,

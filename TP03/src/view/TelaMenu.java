@@ -60,20 +60,20 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == livro) // mostra
+		if(src == livro) // mostra os livros cadatrados e para cadastra ou excluir um livro
 			new TelaLivro().mostraDados(dados, 1);
 
-		if(src == emprestimo) {
+		if(src == emprestimo) { // area de emprestimo de livro
 			new TelaEmprestimo().emprestimoLivros(dados, 2);
 		}
-		if(src == biblioteca) {
+		if(src == biblioteca) { // area de pesquisa do livro
 			new TelaBiblioteca().pesquisa(dados, 3);
 		
 		}
-		if(src == obra) {
+		if(src == obra) { // area de estastira e ordem alfabatica
 			new TelaObra().listaOrdemAlfabetica(dados, 4);
 		}
-		if(src == usuario) {
+		if(src == usuario) { // area de lista de usuairos e cadastro
 			new TelaUsuario().mostraUsuarios(dados, 5);
 		}
 

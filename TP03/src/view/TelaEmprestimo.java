@@ -82,7 +82,7 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 		if(src == emEmprestimo) {	// botao que mostra o livro que esta emprestado no momento
 			new TelaDetalheEmprestimo().fazerEmprestimo(3, dados, this, 0);
 		}
-		if(src == refreshEmprestimo) {	// refresh a lista
+		if(src == refreshEmprestimo) {	// atualiza  a lista
 			livrosBiblioteca.setListData(new ControleLivro(dados).getNomeLivro());
 			livrosBiblioteca.updateUI();
 		}
