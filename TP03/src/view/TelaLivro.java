@@ -22,8 +22,8 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 		
 		switch (op) {
 		case 1:
-			listaLivros = new ControleLivro(dados).getNomeLivro();
-			listaLivrosCadastrados = new JList<String>(listaLivros);
+			listaLivros = new ControleLivro(dados).getNomeLivro(); // nome do livro no veotr de string
+			listaLivrosCadastrados = new JList<String>(listaLivros); // adicona o vetor de string no jlist
 			janela = new JFrame("Livros");
 			titulo = new JLabel("Livros Cadastrados");
 			
@@ -36,11 +36,13 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 			listaLivrosCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaLivrosCadastrados.setVisibleRowCount(10);
 			
-			cadastraLivro.setBounds(70, 177, 100, 30);
+			// tamanho dos botoes
+			cadastraLivro.setBounds(70, 177, 100, 30); 
 			refreshLivro.setBounds(200, 177, 100, 30);
 			
 			janela.setLayout(null);
 			
+			// adciona as janelas do titulo, jlist e botoes.
 			janela.add(titulo);
 			janela.add(listaLivrosCadastrados);
 			janela.add(cadastraLivro);
@@ -65,11 +67,11 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == cadastraLivro) {
+		if(src == cadastraLivro) { // cadastra/ edita livro
 			new TelaDetalheLivro().inserirEditar(1, dados, this, 0);
 		}
 		
-		if(src == refreshLivro) {
+		if(src == refreshLivro) { // atualiza a lista caso ocorra editao ou novo cadastro de livro
 			
 			listaLivrosCadastrados.setListData(new ControleLivro(dados).getNomeLivro());
 			listaLivrosCadastrados.updateUI();

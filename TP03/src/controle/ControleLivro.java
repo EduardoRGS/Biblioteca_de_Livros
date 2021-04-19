@@ -6,16 +6,14 @@ import java.lang.String;
 public class ControleLivro {
 	private Livro[] l;
 	private int qtdLivros;
-	private Emprestimo[] e;
 	
 	
 	public ControleLivro(ControleDados d) {
 		l = d.getLivros();
 		qtdLivros = d.getQtdLivros();
-		e = d.getEmprestimos();
 	}
 	
-	public String[] getNomeLivro() {
+	public String[] getNomeLivro() {	// Retorna o nome do Livro
 		String[] s = new String[qtdLivros];
 		for(int i = 0; i < qtdLivros; i++) {
 			s[i] = l[i].getNome();

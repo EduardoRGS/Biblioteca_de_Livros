@@ -18,16 +18,6 @@ public class Livro extends Obra {
 		this.getNome();
 	}
 
-	public String toString() {			// ToString para cadastra o nome do Livro.
-		return "Nome do Livro = " +nome;
-	}
-	public String toString1() {			// ToString1 para usar o Livro Cadastrado em modulos da biblioteca.
-		return nome;
-	}
-	public String toString2() {			// ToString2 para cadastra o gênero literario do Livro.
-		return generoLiterario;
-	}
-
 	public String getGeneroLiterario() {
 		return generoLiterario;
 	}

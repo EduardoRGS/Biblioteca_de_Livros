@@ -6,7 +6,6 @@ public class Obra {
 	
 	protected String nome;	
 	protected boolean lido;
-	protected Date dataPublicacao;
 	private Livro livro;
 	public Obra() {
 		super();
@@ -16,10 +15,6 @@ public class Obra {
 	}
 	public void setLivros(Livro livro) {
 		this.livro = livro;
-	}
-	
-	public boolean toBoolean() {	// ToBoolean para ler variavewl tipo boolean.
-		return lido;
 	}
 	
 	public String getNome() {
@@ -43,15 +38,6 @@ public class Obra {
 		this.lido = lido;
 	}
 	
-	
-	public Date getDataPublicacao() {
-		return dataPublicacao;
-	}
-	
-	
-	public void setDataPublicacao(Date dataPublicacao) {
-		this.dataPublicacao = dataPublicacao;
-	}
 	
 	
 }

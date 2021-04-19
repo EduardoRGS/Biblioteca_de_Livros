@@ -14,7 +14,7 @@ import controle.*;
 
 public class TelaDetalheLivro implements ActionListener {
 	
-	private JFrame janela;
+	private JFrame janela;	
 	private JLabel labelLivro = new JLabel("Nome: ");
 	private JTextField valorLivro;
 	private JLabel labelGenero = new JLabel ("Genero Literário: ");
@@ -26,12 +26,12 @@ public class TelaDetalheLivro implements ActionListener {
 	private JButton botaoSalvar = new JButton("Salvar");
 	private static ControleDados dados;
 	
-	private String[] novoDado = new String[9];
+	private String[] novoDado = new String[50];	// String para Cadastra/ Editar um livro
 	private int posicao;
 	private int opcao;
 	private String s;
-	int quantidadeLido = 3;
-	int quantidadePendentes = 2;
+	int quantidadeLido = 3;	// Quantidade de Livros Lidos
+	int quantidadePendentes = 2; // Quantidade de Livros Pendentes
 	public void inserirEditar(int op, ControleDados d, TelaLivro l, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -44,18 +44,18 @@ public class TelaDetalheLivro implements ActionListener {
 		
 		janela = new JFrame(s);
 		
-		if(op == 3) {
+		if(op == 3) {	// Preenche com os dados do Livro seu nome e genero literario
 			valorLivro = new JTextField(dados.getLivros()[pos].getNome(), 200);
 			valorGenero = new JTextField(dados.getLivros()[pos].getGeneroLiterario(), 200);
 			
 			
-		} else {
+		} else { // Não preenche com os dados
 			valorLivro = new JTextField(200);
 			valorGenero = new JTextField(200);
 			
-			botaoSalvar.setBounds(120, 175, 115, 30);
+			botaoSalvar.setBounds(120, 175, 115, 30); // tamamho do Botao de salvar 
 		}
-		
+		// tamanho ds botões, Lbalbes e JTextField;
 		labelLivro.setBounds(30, 20, 150, 25);
 		valorLivro.setBounds(100, 20, 180, 25);
 		labelGenero.setBounds(30, 50, 150, 25);
@@ -64,11 +64,12 @@ public class TelaDetalheLivro implements ActionListener {
 		botaoNaoLido.setBounds(200, 120, 150, 25);
 		
 		if(op == 3) {
+			// Tamanho dos botoes 
 			botaoSalvar.setBounds(120, 175, 115, 30);
 			botaoExcluir.setBounds(245, 175, 115, 30);
-			this.janela.add(botaoExcluir);
+			this.janela.add(botaoExcluir); // Adicona a janela do botao excluir
 		}
-		
+		// adiciona todos os botões, Lbalbes e JTextField;
 		this.janela.add(labelLivro);
 		this.janela.add(valorLivro);
 		this.janela.add(labelGenero);
@@ -80,8 +81,8 @@ public class TelaDetalheLivro implements ActionListener {
 		
 		this.janela.setLayout(null);
 		
-		this.janela.setSize(400, 250);
-		this.janela.setVisible(true);
+		this.janela.setSize(400, 250);	// tamanho da janela
+		this.janela.setVisible(true);	// mostra a janela 
 		
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
@@ -92,12 +93,12 @@ public class TelaDetalheLivro implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == botaoSalvar) {
+		if(src == botaoSalvar) {	// caso clicke no botao salvar
 			try {
 				boolean res;
-				if(opcao == 1) 
+				if(opcao == 1)  // preenche o nome do livro
 					novoDado[0] = Integer.toString(dados.getQtdLivros());
-				else 
+				else // não preenche com os dados
 					novoDado[0] = Integer.toString(posicao);
 				
 				
@@ -105,14 +106,12 @@ public class TelaDetalheLivro implements ActionListener {
 				novoDado[2] = valorGenero.getText();
 				
 				if(opcao == 1 || opcao == 3) {
-					
+					// cadasta o livro
 					res = dados.inserirEditarLivro(novoDado);
 					
 					
 				}
 				if(res = true) {
-					
-					
 					mensagemSucessoCadastro();
 				}
 				else mensagemErroCadastro();
@@ -130,7 +129,7 @@ public class TelaDetalheLivro implements ActionListener {
 			boolean res = false;
 			
 			if(opcao == 3) {
-				
+				// exclui o livro
 				res = dados.removeLivro(posicao);
 				
 				if(res) { 
@@ -145,13 +144,13 @@ public class TelaDetalheLivro implements ActionListener {
 		}
 		if(src == botaoLido) {
 			quantidadeLido++;
-			
+			// mostra a mensagem de livro lido
 			JOptionPane.showMessageDialog(null, "Marcado com Livro Lido ", null,
 					JOptionPane.INFORMATION_MESSAGE);
 			
 		}
 		if(src == botaoNaoLido) {
-			
+			// mostra o mensagem do livro pedente
 			quantidadePendentes++;
 			JOptionPane.showMessageDialog(null, "Marcado com Livro Pendente", null,
 					JOptionPane.INFORMATION_MESSAGE);

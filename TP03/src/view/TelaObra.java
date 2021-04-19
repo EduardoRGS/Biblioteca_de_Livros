@@ -3,6 +3,8 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Collections;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -16,7 +18,6 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 	private JButton estatistica;
 	private static ControleDados dados;
 	private JList<String> listaOrdemLivros;
-	
 	private String[] listaOrdem = new String[50];
 	
 	public void listaOrdemAlfabetica(ControleDados d, int op) {

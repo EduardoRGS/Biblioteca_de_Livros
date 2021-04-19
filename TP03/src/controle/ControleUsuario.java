@@ -10,7 +10,7 @@ public class ControleUsuario {
 		u = d.getUsuarios();
 		qtdUsuarios = d.getQtdUsuarios();
 	}
-	public String[] getNomeUsuario() {
+	public String[] getNomeUsuario() {	// Retorna o Nome do Usuario
 		String[] s = new String[qtdUsuarios];
 		for(int i = 0; i < qtdUsuarios; i++) {
 			s[i] = u[i].getNomeUsuario();

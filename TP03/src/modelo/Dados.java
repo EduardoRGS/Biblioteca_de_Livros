@@ -56,29 +56,6 @@ public class Dados {
 		this.qtdLivros = qtdLivros;
 	}
 	
-
-	public Emprestimo[] getEmprestimos() {
-		return emprestimos;
-	}
-	public void setEmprestimos(Emprestimo[] emprestimos) {
-		this.emprestimos = emprestimos;
-	}
-	public int getQtdEmprestados() {
-		return qtdEmprestados;
-	}
-	public void setQtdEmprestados(int qtdEmprestados) {
-		this.qtdEmprestados = qtdEmprestados;
-	}
-	public String setlivroEmprestado(String emprestimo) {
-		return emprestimo;
-	}
-	
-	
-	public Obra[] getObra() {
-		return obra;
-	}
-
-
 	
 	public Usuario[] getUsuarios() {
 		return usuarios;

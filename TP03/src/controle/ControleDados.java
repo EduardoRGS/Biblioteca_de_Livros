@@ -9,7 +9,7 @@ public class ControleDados {
 	public String remove;
 	public int contador;
 	
-	public ControleDados() {
+	public ControleDados() { // Armazena os dados da Classe Modelo Dados
 		d.GerarDados();
 	}
 	public Dados getDados() {
@@ -20,38 +20,31 @@ public class ControleDados {
 	public void setDados(Dados d) {
 		this.d = d;
 	}
-	public Livro[] getLivros() {
+	public Livro[] getLivros() {	// Armazeda a CLasse Livro no ControleDados
 		return this.d.getLivros();
 	}
 
-	public int getQtdLivros() {
+	public int getQtdLivros() {	// Armazeda a Quantidade de Livros no ControleDados
 		return this.d.getQtdLivros();
 	}
 	
-	public Usuario[] getUsuarios() {
+	public Usuario[] getUsuarios() { // Armazena a Calsse Usuario no ControleDados
 		return this.d.getUsuarios();
 	}
-	public int getQtdUsuarios() {
+	public int getQtdUsuarios() {	// Armazena a quantidade de usuarios no ControleDados
 		return this.d.getQtdUsuarios();
 	}
 	
-	public Emprestimo[] getEmprestimos() {
-		return this.d.getEmprestimos();
-	}
-	public int getQtdEmprestimos() {
-		return this.d.getQtdEmprestados();
-	}
 	
-	
-	public boolean inserirEditarLivro(String[] dadosLivros) {
+	public boolean inserirEditarLivro(String[] dadosLivros) {	// Cadastra e Ediitar os livros
 		Livro l = new Livro(dadosLivros[1], dadosLivros[2]);
 		
-		d.inserirEditarLivro(l, Integer.parseInt(dadosLivros[0]));
+		d.inserirEditarLivro(l, Integer.parseInt(dadosLivros[0])); // Inseri o novo livro na posicao 0
 		return true;
 		
 	}
 	
-	public boolean removeLivro(int i) {
+	public boolean removeLivro(int i) {	// Remove o Livro
 		int qtdLivros = d.getQtdLivros();
 		String livroRemovido = d.getLivros()[i].getNome();
 		String aux;
@@ -62,7 +55,7 @@ public class ControleDados {
 			aux = d.getLivro()[j].getNome();
 			if(livroRemovido.compareTo(aux) == 0) {
 				
-				return false;
+				return false;	
 			}
 		}
 		
@@ -70,7 +63,7 @@ public class ControleDados {
 			d.setQtdLivros(getQtdLivros() - 1);
 			d.getLivros()[d.getQtdLivros()] = null;
 			
-			remove = livroRemovido;
+			remove = livroRemovido; // Usado na metodo de emprestimo
 			
 			return true;
 			
@@ -94,12 +87,13 @@ public class ControleDados {
 		
 	}
 	
-	public int pesquisa(String nomeLivro) {
+	public int pesquisa(String nomeLivro) {	// Pesquisa o Livro
 		int posicao = -1;
 		
 			
 		for(int i = 0; i < d.getQtdLivros(); i++) {
 			
+			// Se for o Livro for igual ao Livro pesquisado é igual a 0 se nao é -1
 			if(d.getLivro()[i].getNome().toLowerCase().compareTo(nomeLivro.toLowerCase()) == 0) {
 					posicao = i;
 					return posicao;
@@ -111,13 +105,13 @@ public class ControleDados {
 		
 	}
 	
-	public boolean inserirEditarUsuario(String[] dadosUsuario) {
+	public boolean inserirEditarUsuario(String[] dadosUsuario) { // Cadastra e Edita Usuario
 		Usuario u = new Usuario(dadosUsuario[1]);
 		
 		d.inserirEditarUsuario(u, getQtdUsuarios());
 		return true;
 	}
-	public boolean removeUsuario(int i) {
+	public boolean removeUsuario(int i) {	// Remove um Usuario
 		int qtdUsuario = d.getQtdUsuarios();
 		String userRemovido = d.getUsuarios()[i].getNomeUsuario();
 		String aux;
@@ -147,7 +141,8 @@ public class ControleDados {
 			return true;
 		}
 	}
-	public int pesquisaUsuario(String nomeUsuario) {
+	public int pesquisaUsuario(String nomeUsuario) {	// Pesquisa Usuario
+														// metodo Usado na TelaDetalheEmprestimo para cadastra o emprestimo
 		int posicao = -1;
 		
 		for(int i = 0; i < d.getQtdUsuarios(); i++) {

@@ -10,16 +10,17 @@ import controle.*;
 
 public class TelaMenu implements ActionListener {
 	
-	private static JFrame janela = new JFrame("Biblioteca");
+	private static JFrame janela = new JFrame("Biblioteca"); 
 	private static JLabel titulo = new JLabel("Organizador de Livros");
 	private static JButton livro = new JButton("Livro");  // Aqui fica os Livros
 	private static JButton emprestimo = new JButton("Emprestimo"); // Aqui fica o Empresimo
 	private static JButton biblioteca = new JButton("Biblioteca");	// Aqui fica a Pesquisa
 	private static JButton obra = new JButton("Obra");	// Aqui os Livros listados por ordem alfabetica.
-	private static JButton usuario  = new JButton("Usuario");
+	private static JButton usuario  = new JButton("Usuario"); // Aqui fica os Usuarios
 	public static ControleDados dados = new ControleDados();
 	
 	public TelaMenu() {
+		// tamanho dos titulos e botoes
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(80, 10, 250, 50);
 		livro.setBounds(120, 80, 150, 30);
@@ -30,6 +31,7 @@ public class TelaMenu implements ActionListener {
 		
 		janela.setLayout(null);
 		
+		// adiciona as janelas do titulo e botoes
 		janela.add(titulo);
 		janela.add(livro);
 		janela.add(emprestimo);
@@ -46,6 +48,7 @@ public class TelaMenu implements ActionListener {
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
 		
+		// metodo de ação dos botoes
 		livro.addActionListener(menu);
 		emprestimo.addActionListener(menu);
 		biblioteca.addActionListener(menu);
@@ -57,7 +60,7 @@ public class TelaMenu implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if(src == livro)
+		if(src == livro) // mostra
 			new TelaLivro().mostraDados(dados, 1);
 
 		if(src == emprestimo) {

@@ -8,10 +8,10 @@ import javax.swing.event.*;
 import controle.*;
 
 public class TelaBiblioteca implements ActionListener{
-	private JFrame janela;
+	private JFrame janela;	
 	private JLabel titulo;
-	private JButton pesquisa;
-	private JTextField valorPesquisa;
+	private JButton pesquisa;	// Botão para Pesquisar
+	private JTextField valorPesquisa;	// JTextField para escrever o livro que quer pesquisar
 	private static ControleDados dados;
 	private String s;
 	private int opcao;
@@ -57,15 +57,15 @@ public class TelaBiblioteca implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		if(src == pesquisa) {
+		if(src == pesquisa) {	// Pesquisa o Livro
 			if(opcao == 3) {
 				s = valorPesquisa.getText();
 				if(dados.pesquisa(s) >= 0) {
 					
-					mensagemSucessoPesquisa();
+					mensagemSucessoPesquisa();	// Caso livro igual o livro pesquisado
 				} else {
 					
-					 mensagemErroPesquisa();
+					 mensagemErroPesquisa();	// Caso livro pesquisa não for igual livros cadasrados
 				}
 			}
 		}

@@ -36,23 +36,23 @@ public class TelaDetalheUsuario implements ActionListener {
 		
 		janela = new JFrame(s);
 		
-		if(op == 2) {
+		if(op == 2) {// preenche os dados do nome do usuario
 			valorUsuario = new JTextField(dados.getUsuarios()[pos].getNomeUsuario(), 200);
-		} else {
+		} else { // nao preenche com o nome do usaurio
 			valorUsuario = new JTextField(200);
-			
+			// adicona o tamanho do botao salvar
 			botaoSalvar.setBounds(245, 175, 115, 30);
 		}
-		
+		// tamanho do label e JTextFild usuario
 		labelUsuario.setBounds(30 ,20, 150, 25);
 		valorUsuario.setBounds(100, 20, 100, 25);
 		
-		if(op == 2) {
+		if(op == 2) { // adicona o tamanho os botoes excluir e salvare a janela do botao excluir
 			botaoSalvar.setBounds(120, 175, 115, 30);
 			botaoExcluir.setBounds(245, 175, 115, 30);
 			this.janela.add(botaoExcluir);
 		}
-		
+		// adiocna as jaenla do label, jtextflied e botao salvar
 		this.janela.add(labelUsuario);
 		this.janela.add(valorUsuario);
 		this.janela.add(botaoSalvar);
@@ -72,14 +72,14 @@ public class TelaDetalheUsuario implements ActionListener {
 		if(src == botaoSalvar) {
 			try {
 				boolean res;
-				if(opcao == 1)
+				if(opcao == 1) // prrenche os dados do usuario
 					novoUsuario[0] = Integer.toString(dados.getQtdUsuarios());
 				else 
 					novoUsuario[0] = Integer.toString(posicao);
 				
 				novoUsuario[1] = valorUsuario.getText();
 				
-				if(opcao == 1) {
+				if(opcao == 1) { // Cadastra um usuario
 					res = dados.inserirEditarUsuario(novoUsuario);
 				}
 				
@@ -99,7 +99,7 @@ public class TelaDetalheUsuario implements ActionListener {
 		if(src == botaoExcluir) {
 			boolean res = false;
 			
-			if(opcao == 2) {
+			if(opcao == 2) { // Remove um usuario
 				res = dados.removeUsuario(posicao);
 				if(res) mensagemSucessoExclusao();
 				else mensagemErroExclusaoUsuario();
