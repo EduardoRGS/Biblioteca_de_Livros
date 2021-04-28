@@ -4,7 +4,15 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
-
+	
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela, titulos, uma lista de usuarios cadastrados
+	 * e os botões Cadastrar e Refresh
+	 * Além de atualizar a lista de usuarios
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaUsuario implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -14,6 +22,12 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 	private JList<String> listaUsuariosCadastrados;
 	private String[] listaUsuarios = new String[50];
 	
+	/**
+	 * Método que mostra a lista de usuarios cadastrados
+	 * e os botões Cadastrar e Refresh
+	 * @param d ControleDados
+	 * @param op opção do switch case
+	 */
 	public void mostraUsuarios(ControleDados d, int op) {
 		dados = d;
 		
@@ -62,6 +76,10 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 		}
 		
 	}
+	/**
+	 * Método que faz a ações dos
+	 * botões Cadastrar e Refresh
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -74,6 +92,11 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 		}
 			
 	}
+	
+	/**
+	 * Método que mostra e atualiza a lista de 
+	 * usuarios cadastrados
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

@@ -1,6 +1,10 @@
 package modelo;
 
-
+	/**
+	 * Essa é a classe que define o nome e o genero lirerario do livro armazenados na classe Obra
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 
 public class Livro extends Obra {
 	private String generoLiterario;

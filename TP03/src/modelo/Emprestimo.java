@@ -1,7 +1,11 @@
 package modelo;
 
 import java.util.*; // Para poder usar o tipo Date e os outras funções.
-
+	/**
+	 * Essa classe o livro emprestado junto dos gets e sets desse livro
+	 * @author Lara Giuliana
+	 * @version 1.0 (Abril 2021)
+	 */
 public class Emprestimo {
 	private String livroEmprestado;
 	

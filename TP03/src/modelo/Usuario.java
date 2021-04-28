@@ -1,5 +1,10 @@
 package modelo;
 
+	/**
+	 * Essa classe define o nome do usuario
+	 * @author Lara Giuliana
+	 * @version 1.0 (Abril 2021)
+	 */
 public class Usuario {
 	
 	private String nomeUsuario;

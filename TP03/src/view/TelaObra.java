@@ -10,7 +10,14 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
-
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela, titulos, uma lista de livros
+	 * em ordem alfabetica, quantidade de livros
+	 * e os botões Ordem Alfabetica e Estatistica
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaObra implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -20,6 +27,12 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 	private JList<String> listaOrdemLivros;
 	private String[] listaOrdem = new String[50];
 	
+	/**
+	 * Método que mostra a lista de livros cadastrados
+	 * e os botões Ordem Alfabetica e Estatistica
+	 * @param d ControleDados
+	 * @param op opção do switch case
+	 */
 	public void listaOrdemAlfabetica(ControleDados d, int op) {
 		dados = d;
 		
@@ -65,6 +78,10 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 		}
 	}
 	
+	/**
+	 * Método que controla a ação
+	 * dos botões Ordem Alfabetica e Estatistica
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == refreshOA) { // atualiza a lista em ordem alfabeticva
@@ -76,7 +93,7 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 			
 	
 		}
-		if(src == estatistica) { // mostra aquantidade de livros lidos,pendentes e totais.
+		if(src == estatistica) { // mostra a quantidade de livros lidos,pendentes e totais.
 			JOptionPane.showMessageDialog(null, "Quantidade de Livros Lidos "+new TelaDetalheLivro().quantidadeLido+
 					"\n Qunatidade de Livros Pendentes "+new TelaDetalheLivro().quantidadePendentes+
 					"\n Quantidade Total de Livros "+dados.getQtdLivros(), null,
@@ -86,6 +103,9 @@ public class TelaObra implements ActionListener, ListSelectionListener {
 			
 	}
 	
+	/**
+	 * Método atualiza a lista de livros cadastrados
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		if(e.getValueIsAdjusting() && src == listaOrdemLivros) {

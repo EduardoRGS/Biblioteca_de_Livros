@@ -11,7 +11,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
-
+	
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela , titulos, criar a lista de livros cadastrados
+	 * e os botões Ja Li, Ainda vou Ler, Salvar e Excluir
+	 * Alem de mostra os detalhes do livro
+	 * que e o nome e o genero literario
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaDetalheLivro implements ActionListener {
 	
 	private JFrame janela;	
@@ -32,6 +41,16 @@ public class TelaDetalheLivro implements ActionListener {
 	private String s;
 	int quantidadeLido = 3;	// Quantidade de Livros Lidos
 	int quantidadePendentes = 2; // Quantidade de Livros Pendentes
+	
+	/**
+	 * Método que mostra a janela de detalhe
+	 * do livro e os botões Já Li,
+	 * Ainda vou Ler, Salvar e Excluir
+	 * @param op opção do switch case
+	 * @param d classe ControleDados
+	 * @param l classe TelaLivro
+	 * @param pos posicao do livro
+	 */
 	public void inserirEditar(int op, ControleDados d, TelaLivro l, int pos) {
 		opcao = op;
 		posicao = pos;
@@ -90,6 +109,10 @@ public class TelaDetalheLivro implements ActionListener {
 		botaoNaoLido.addActionListener(this);
 	}
 	
+	/**
+	 * Métod que controla a ação dos bõtoes
+	 * Já Li, Ainda vou Ler, Salvar e Excluir
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -157,24 +180,40 @@ public class TelaDetalheLivro implements ActionListener {
 		}
 	}
 	
-
+	/**
+	 * Método que mostra a mensagem de sucesso de um
+	 * livro removido
+	 */
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null,"O Livro foi Excluido com sucesso", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
+	
+	/**
+	 * Método que mostra a mesnsagem de sucesso de um
+	 * livro cadastrado
+	 */
 	public void mensagemSucessoCadastro() {
 		JOptionPane.showMessageDialog(null, "O Livro foi salvo com sucesso!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
-
+	
+	/**
+	 * Método que mostra a mensagem de erro no
+	 * cadastro de um livro
+	 */
 	public void mensagemErroCadastro() {
 		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
 				, null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
-
+	
+	/**
+	 * Método que mostra a mensagem de erro ao
+	 * tentar remover um livro
+	 */
 	public void mensagemErroExclusaoLivro() {
 		JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR DADOS!\n ", null, 
 				JOptionPane.ERROR_MESSAGE);

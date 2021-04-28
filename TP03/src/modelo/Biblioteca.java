@@ -1,10 +1,15 @@
 package modelo;
 
 import java.util.*; 
+
+	/**
+	 * String, get e sets
+	 * @author Lara Giuliana
+	 * @version 1.0 (Abril 2021)  
+	 */
 public class Biblioteca {
 	
 	private String usuario;
-	private String telefone;
 
 	public String getUsuario() {
 		return usuario;
@@ -14,12 +19,6 @@ public class Biblioteca {
 		this.usuario = usuario;
 	}
 	
-	public String getTelefone() {
-		return telefone;
-	}
 	
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
 	
 }

@@ -5,7 +5,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
-
+	/**
+	 * Essa classe tem a funcionalidade de criar uma
+	 * janela, titulos, uma lista de livros cadastrados
+	 * e os botões de Emprestimo, Em emprestimo e Refresh
+	 * Além da atualizar a lista de livros cadastrados
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -16,6 +23,12 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 	private JList<String> livrosBiblioteca;
 	private String[] listaBiblioteca;
 	
+	/**
+	 * Método da lista de livros cadastrados
+	 * e os botões de Emprestimo, Em emprestimo e Refresh
+	 * @param d	classe ConroleDados
+	 * @param op opção do switch case
+	 */
 	public void emprestimoLivros(ControleDados d, int op) {
 		dados = d;
 		
@@ -70,6 +83,10 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 			
 	}
 	
+	/**
+	 * Método que controla a ação
+	 * dos botões Emprestimo, Em emprestimo e Refresh
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -88,16 +105,16 @@ public class TelaEmprestimo implements ActionListener, ListSelectionListener {
 		}
 	}
 	
+	/**
+	 * Método que mostra e atualiza a lista de
+	 * livros cadastrados
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		
 		if(e.getValueIsAdjusting() && src == livrosBiblioteca) {
 			new TelaDetalheEmprestimo().fazerEmprestimo(1, dados, this, 
 					livrosBiblioteca.getSelectedIndex());
-		} else {
-			JOptionPane.showMessageDialog(null,"Cadastre um usuario para poder fazer o "
-					+ "emprestimo do Livro", null,
-					JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}

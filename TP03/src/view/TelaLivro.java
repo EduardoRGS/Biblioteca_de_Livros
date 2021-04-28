@@ -7,7 +7,15 @@ import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
-
+	
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela, titulos, uma lista de livros cadastrados
+	 * e os botões Cadastrar e Refresh
+	 * Além de atualizar a lista de livros
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaLivro implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -17,6 +25,12 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 	private JList<String> listaLivrosCadastrados;
 	private String[] listaLivros = new String[50];
 	
+	/**
+	 * Método que mostra a lista de livros cadastrados
+	 * e os botões Cadastrar e Refresh
+	 * @param d classe ControleDados
+	 * @param op opção do switch case
+	 */
 	public void mostraDados(ControleDados d, int op) {
 		dados = d;
 		
@@ -64,6 +78,10 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 		}
 	}
 	
+	/**
+	 * Método que faz a ações dos
+	 * botões Cadastrar e Refresh
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -78,6 +96,10 @@ public class TelaLivro implements ActionListener, ListSelectionListener {
 		}
 	}
 	
+	/**
+	 * Método que mostra e atualiza a lista de 
+	 * livros cadastrados
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		

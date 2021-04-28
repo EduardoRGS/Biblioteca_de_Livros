@@ -7,6 +7,14 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
+	/**
+	 * Essa classe controla a funcionalidade
+	 * de criar uma janela, titulos 
+	 * e os botões da Biblioteca
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
+
 public class TelaBiblioteca implements ActionListener{
 	private JFrame janela;	
 	private JLabel titulo;
@@ -16,7 +24,12 @@ public class TelaBiblioteca implements ActionListener{
 	private String s;
 	private int opcao;
 	
-	
+	/**
+	 * Método que mostra a janela de pesquisa
+	 * junto do botão de pesquisa de Livros/Usuarios
+	 * @param d Classe ControleDados 
+	 * @param op posição do livro/usuario 
+	 */
 	public void pesquisa(ControleDados d, int op) {
 		dados = d;
 		opcao = op;
@@ -55,6 +68,9 @@ public class TelaBiblioteca implements ActionListener{
 		
 	}
 	
+	/**
+	 * Método que controla a ação do botão de pesquisa
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == pesquisa) {	// Pesquisa o Livro
@@ -70,6 +86,11 @@ public class TelaBiblioteca implements ActionListener{
 			}
 		}
 	}
+	
+	/**
+	 * Método de mensagem de sucesso
+	 * Caso busque um livro/usuario cadastrado
+	 */
 	public void mensagemSucessoPesquisa() {
 		
 		JOptionPane.showMessageDialog(null, "Livro Pesquisado encontrado", null, 
@@ -77,6 +98,10 @@ public class TelaBiblioteca implements ActionListener{
 		janela.dispose();
 	}
 	
+	/**
+	 * Método de mensagem de erro
+	 * Caso o busca por um livro/usuario não cadastrado
+	 */
 	public void mensagemErroPesquisa() {
 		JOptionPane.showMessageDialog(null,"LIVRO NÃO ENCONTRADO!\n"
 				+ "Pesquise novamente!!!"

@@ -1,7 +1,11 @@
 package modelo;
 
 import java.util.*;
-
+	/**
+	 * Essa classe define o livro, emprestimo e se ele foi lido
+	 * @author Lara Giuliana
+	 * @version 1.0 (Abril 2021)
+	 */
 public class Obra {
 	
 	protected String nome;	

@@ -1,5 +1,6 @@
 package view;
 
+	
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
@@ -7,6 +8,16 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
+		
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela, titulos, uma lista de livros emprestados
+	 * e os botões Fazer Emprestimo
+	 * Além de mostra os detalhes com o 
+	 * nome do livro e do usuario
+	 * @author Lara Giuliana
+	 * @version 1.0 (Abril 2021)
+	 */
 
 public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListener{
 	
@@ -28,7 +39,15 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 	int quant = 0;
 	
 	
-	
+	/**
+	 * Método que mostra a janela 
+	 * de datalhe do emprestimo 
+	 * e o botão de Fazer Emprestimo
+	 * @param op opção so switch case
+	 * @param d classe ControleDados
+	 * @param e classe TelaEmprestimo
+	 * @param pos posição do livro
+	 */
 	public void fazerEmprestimo(int op, ControleDados d,
 			 TelaEmprestimo e, int pos) {
 		
@@ -106,6 +125,9 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 		
 	}
 	
+	/**
+	 * Método que controla a ação dos botões Emprestimo, Em emprestimo e Refresh
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		String pesquisa2;
@@ -148,6 +170,10 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 		
 	}
 	
+	/**
+	 * Método que atualiza a lista de livros na 
+	 * Classe TelaEmprestimo
+	 */
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();
 		
@@ -157,12 +183,18 @@ public class TelaDetalheEmprestimo implements ActionListener, ListSelectionListe
 		}
 	}
 	
+	/**
+	 * Método que mostra a mesagem de sucesso do emprestimo
+	 */
 	public void mensagemSucessoEmprestimo() {
 		JOptionPane.showMessageDialog(null,"O Emprestimo foi realizado com sucesso", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		janela.dispose();
 	}
 
+	/**
+	 * Método que mostra a mesagem de erro do emprestimo
+	 */
 	public void mensagemErroExclusaoEmprestimo() {
 		JOptionPane.showMessageDialog(null,"ERRO AO REALIZAR EMPRESTIMO!\n ", null, 
 				JOptionPane.ERROR_MESSAGE);

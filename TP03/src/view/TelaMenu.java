@@ -7,7 +7,14 @@ import java.util.Arrays;
 import javax.swing.*;
 import controle.*;
 
-
+	/**
+	 * Essa classe tem a funcionalidade de criar
+	 * uma janela de menu, titulos e multiplos
+	 * botões Livro, Emprestimo, Binlioteca
+	 * Obra e Usuario
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class TelaMenu implements ActionListener {
 	
 	private static JFrame janela = new JFrame("Biblioteca"); 
@@ -19,6 +26,11 @@ public class TelaMenu implements ActionListener {
 	private static JButton usuario  = new JButton("Usuario"); // Aqui fica os Usuarios
 	public static ControleDados dados = new ControleDados();
 	
+	/**
+	 * Método que gera as janelas, lista e
+	 * botões Livro, Emprestimo, Binlioteca
+	 * Obra e Usuario
+	 */
 	public TelaMenu() {
 		// tamanho dos titulos e botoes
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -45,6 +57,10 @@ public class TelaMenu implements ActionListener {
 		janela.setVisible(true);
 	}
 	
+	/**
+	 * Método main que adiciona a ação dos botões
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		TelaMenu menu = new TelaMenu();
 		
@@ -57,6 +73,11 @@ public class TelaMenu implements ActionListener {
 	
 	}
 	
+	/**
+	 * Método que controla a ação
+	 * dos botões Livro, Emprestimo, Binlioteca
+	 * Obra e Usuario
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		

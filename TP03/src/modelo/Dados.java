@@ -2,18 +2,22 @@ package modelo;
 
 import java.util.*;
 import java.util.Arrays;
-
+	
+	/**
+	 * Responsalvel por guardar os vetores de livro e usuario e a quantidade de livros e usuarios
+	 * @author Eduardo Ribeiro
+	 * @version 1.0 (Abril 2021)
+	 */
 public class Dados {
 	private Livro[] livros = new Livro[50];
 	private int qtdLivros = 0;
-	private Emprestimo[] emprestimos = new Emprestimo[50];
-	private int qtdEmprestados = 0;
-	private Obra[] obra = new Obra[50];
 	private Usuario[] usuarios = new Usuario[50];
 	private int qtdUsuarios = 0;
 	
 	
-	
+	/**
+	 * Gera os dados de livro e usuario
+	 */
 	public void GerarDados() {
 		
 		for(int i = 0; i < 5; i++) {
@@ -27,11 +31,23 @@ public class Dados {
 		qtdUsuarios = 5;
 		
 	}
+	
+	/**
+	 * Aumenta a quantidade de livros quando um novo livro for cadastrado
+	 * @param l classe Livro
+	 * @param pos posição 
+	 */
 	public void inserirEditarLivro(Livro l, int pos) {
 		this.livros[pos] = l;
 		if(pos == qtdLivros)
 			qtdLivros++;
 	}
+	
+	/**
+	 * Aumenta a quantidade de usuarios quando um novo usuario for cadastrado
+	 * @param u classe Usuario
+	 * @param pos
+	 */
 	public void inserirEditarUsuario(Usuario u, int pos) {
 		this.usuarios[pos] = u;
 		if(pos == qtdUsuarios)
