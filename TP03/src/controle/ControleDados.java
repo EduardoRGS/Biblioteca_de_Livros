@@ -51,7 +51,7 @@ public class ControleDados {
 	public boolean inserirEditarLivro(String[] dadosLivros) {	
 		Livro l = new Livro(dadosLivros[1], dadosLivros[2]);
 		
-		d.inserirEditarLivro(l, Integer.parseInt(dadosLivros[0])); 
+		d.inserirEditarLivro(l, Integer.parseInt(dadosLivros[0]));
 		return true;
 		
 	}
@@ -65,16 +65,16 @@ public class ControleDados {
 		int qtdLivros = d.getQtdLivros();
 		String livroRemovido = d.getLivros()[i].getNome();
 		String aux;
-		int qtdRemovidos= 0;
-		int q = 0;;
 		
-		for(int j = 0; j < 1; j++) {
+		for(int j = 0; j < 1; j++) {	// Retorna falso se o Livro não estiver cadastrado
 			aux = d.getLivro()[j].getNome();
 			if(livroRemovido.compareTo(aux) == 0) {
 				
 				return false;	
 			}
+			
 		}
+		
 		
 		if(i == (d.getQtdLivros() - 1)) {
 			d.setQtdLivros(getQtdLivros() - 1);

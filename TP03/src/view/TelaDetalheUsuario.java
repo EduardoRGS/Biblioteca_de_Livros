@@ -23,7 +23,7 @@ public class TelaDetalheUsuario implements ActionListener {
 	private JTextField valorUsuario;
 	private JButton botaoSalvar = new JButton("Salvar");
 	private JButton botaoExcluir = new JButton("Excluir");
-	private String[] novoUsuario = new String[9];
+	private String[] novoUsuario = new String[50];
 	private static ControleDados dados;
 	private int posicao;
 	private int opcao;
